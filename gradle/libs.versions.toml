@@ -33,6 +33,11 @@ kotlinSerialization = "2.0.0"
 kotlinJvm = "2.0.0"
 appcompat = "1.7.0"
 material = "1.12.0"
+curl = "0.7.0"
+androidxDataStore = "1.1.1"
+androidxRoom = "2.6.1"
+sqlcipher = "4.5.3"
+biometric = "1.2.0-alpha05"
 
 
 [libraries]
@@ -88,11 +93,24 @@ accompanist = { group = "com.google.accompanist", name = "accompanist-systemuico
 ## Chucker Library
 chucker-debug = { module = "com.github.chuckerteam.chucker:library", version.ref = "chucker" }
 chucker-release = { module = "com.github.chuckerteam.chucker:library-no-op", version.ref = "chucker" }
+curl = { module = "com.github.mrmike:ok2curl", version.ref = "curl" }
+
 
 arrow = { module = "io.arrow-kt:arrow-core", version.ref = "coreArrow" }
 coil = { module = "io.coil-kt:coil-compose", version.ref = "coilVersion" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-biometric = { module = "androidx.biometric:biometric", version.ref = "biometric" }
+
+# Datastore
+androidx-dataStore-core = { group = "androidx.datastore", name = "datastore", version.ref = "androidxDataStore" }
+androidx-dataStore-pref = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "androidxDataStore" }
+
+# room
+androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "androidxRoom" }
+androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "androidxRoom" }
+androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "androidxRoom" }
+sqlcipher = { module = "net.zetetic:android-database-sqlcipher", version.ref = "sqlcipher" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -106,7 +124,9 @@ android-library = { id = "com.android.library", version.ref = "agp" }
 junit5 = { id = "de.mannodermaus.android-junit5", version.ref = "junit5" }
 
 #Custom Plugin
+customPlugin-android-application = {id = "customPlugin.android.application",version.ref = "customPlugin"}
+customPlugin-android-dataSource = {id = "customPlugin.android.dataSource",version.ref = "customPlugin"}
 customPlugin-android-application-compose = {id = "customPlugin.android.application.compose",version.ref = "customPlugin"}
-custom-library = { id = "customPluginLibrary.android.library", version.ref = "customPlugin" }
+custom-android-library = { id = "customPluginLibrary.android.library", version.ref = "customPlugin" }
 custom-compose-library = { id = "customPluginLibrary.compose.library", version.ref = "customPlugin" }
 custom-test-library = { id = "customPluginLibrary.test.library", version.ref = "customPlugin"}

@@ -22,4 +22,8 @@ dependencyResolutionManagement {
 
 rootProject.name = "akp-base"
 include(":app")
-
+include(":features:auth")
+include(":designSystem")
+//
+include(":dataSource")
+include(":common")

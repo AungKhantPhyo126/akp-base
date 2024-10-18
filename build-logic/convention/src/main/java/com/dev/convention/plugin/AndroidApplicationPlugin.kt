@@ -1,9 +1,8 @@
-package plugin
+package com.dev.convention.plugin
 
 import com.android.build.api.dsl.ApplicationExtension
 import com.dev.convention.config.ProjectConfig
 import com.dev.convention.extension.configureAndroidKotlin
-import com.dev.convention.extension.configureCompose
 import com.dev.convention.extension.versionCatalog
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -63,7 +62,6 @@ class AndroidApplicationPlugin: Plugin<Project> {
                     add("implementation", versionCatalog().findLibrary("accompanist").get())
                 }
                 configureAndroidKotlin(this)
-                configureCompose(this)
             }
         }
     }
