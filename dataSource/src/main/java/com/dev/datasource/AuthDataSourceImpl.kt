@@ -1,12 +1,10 @@
 package com.dev.datasource
 
 import arrow.core.Either
-import com.dev.auth.data.AuthDataSource
-import com.dev.auth.data.dto.LoginDto
 import com.dev.common.exception.DataException
 import com.dev.datasource.dataStore.MyDataStoreDataSource
-import com.dev.datasource.mapper.toLoginDto
 import com.dev.datasource.model.request.LoginRequest
+import com.dev.datasource.model.response.LoginResponse
 import com.dev.datasource.network.handler.handleCall
 import com.dev.datasource.network.service.AuthService
 import com.dev.datasource.roomDatabase.MyRoomDataSource
@@ -17,7 +15,7 @@ class AuthDataSourceImpl @Inject constructor(
     private val myRoomDataSource: MyRoomDataSource,
     private val myDataStoreDataSource: MyDataStoreDataSource,
 ):AuthDataSource {
-    override suspend fun login(userName:String,password:String): Either<DataException, LoginDto> {
+    override suspend fun login(userName:String,password:String): Either<DataException, LoginResponse> {
         return handleCall(
             apiCall = {
                 authService.login(
@@ -25,7 +23,7 @@ class AuthDataSourceImpl @Inject constructor(
                 )
             },
             mapper = { data, _, _ ->
-                data.toLoginDto()
+                data
             }
         )
     }

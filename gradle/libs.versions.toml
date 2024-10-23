@@ -38,6 +38,8 @@ androidxDataStore = "1.1.1"
 androidxRoom = "2.6.1"
 sqlcipher = "4.5.3"
 biometric = "1.2.0-alpha05"
+uiTextGoogleFonts = "1.7.4"
+navigationTesting = "2.8.3"
 
 
 [libraries]
@@ -74,9 +76,9 @@ retrofit-kotlin-serialization = { group = "com.jakewharton.retrofit", name = "re
 okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
 
 #Test Libraries
-jupiter-api = { group = "org.junit.jupiter", name = "junit-jupiter-api", version.ref = "jupiter" }
-jupiter-engine = { group = "org.junit.jupiter", name = "junit-jupiter-engine", version.ref = "jupiter"}
-jupiter-params = { group = "org.junit.jupiter", name = ":junit-jupiter-params", version.ref = "jupiter" }
+jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "jupiter" }
+jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "jupiter"}
+jupiter-params = { module = "org.junit.jupiter:junit-jupiter-params", version.ref = "jupiter" }
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 mock-webserver = { group = "com.squareup.okhttp3", name = "mockwebserver", version.ref = "mockWebserver" }
 assertk = { group = "com.willowtreeapps.assertk", name = "assertk", version.ref = "assertK" }
@@ -111,6 +113,8 @@ androidx-room-runtime = { group = "androidx.room", name = "room-runtime", versio
 androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "androidxRoom" }
 androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "androidxRoom" }
 sqlcipher = { module = "net.zetetic:android-database-sqlcipher", version.ref = "sqlcipher" }
+androidx-ui-text-google-fonts = { group = "androidx.compose.ui", name = "ui-text-google-fonts", version.ref = "uiTextGoogleFonts" }
+androidx-navigation-testing = { group = "androidx.navigation", name = "navigation-testing", version.ref = "navigationTesting" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

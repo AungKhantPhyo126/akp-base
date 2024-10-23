@@ -1,7 +1,6 @@
 package com.dev.auth.domain.repository
 
 import arrow.core.Either
-import com.dev.auth.data.dto.LoginDto
 import com.dev.auth.domain.model.UserInfoDomain
 import com.dev.common.exception.DataException
 

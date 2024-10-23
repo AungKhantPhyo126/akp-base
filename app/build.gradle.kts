@@ -9,5 +9,8 @@ android {
 }
 
 dependencies {
-
+    implementation(project(":designSystem"))
+    implementation(project(":dataSource"))
+    implementation(project(":common"))
+    implementation(project(":features:auth"))
 }

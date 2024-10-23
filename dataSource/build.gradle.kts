@@ -66,7 +66,6 @@ android {
     }
 }
 dependencies{
-    implementation(project(":features:auth"))
     implementation(project(":common"))
     kapt(libs.androidx.room.compiler)
 }

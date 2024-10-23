@@ -27,3 +27,4 @@ include(":designSystem")
 //
 include(":dataSource")
 include(":common")
+include(":features:unit_test")

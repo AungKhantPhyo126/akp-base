@@ -3,6 +3,7 @@ package com.dev.datasource.network.utils
 import android.content.Context
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.dev.datasource.BuildConfig
+import com.dev.datasource.dataStore.MyDataStoreDataSource
 import com.dev.datasource.network.interceptor.HttpInterceptor
 import com.dev.datasource.network.interceptor.ResponseInterceptor
 import com.dev.datasource.network.interceptor.myTokenInterceptor
@@ -30,13 +31,13 @@ fun createRetrofitClient(
 fun createOkHttpClient(
     context: Context,
     httpLoggingInterceptor: HttpLoggingInterceptor,
-    localDataSource: MyRoomDataSource,
+    localDataSource: MyDataStoreDataSource,
     myAuthenticator: MyAuthenticator
 ) = OkHttpClient.Builder()
     .authenticator(myAuthenticator)
     .addInterceptor(ResponseInterceptor())
     .addInterceptor { chain ->
-        myTokenInterceptor(chain = chain, localDataSource = localDataSource)
+        myTokenInterceptor(chain = chain, myDataStoreDataSource = localDataSource)
     }
     .also {
         if (BuildConfig.DEBUG) {

@@ -30,6 +30,7 @@
             <option value="$PROJECT_DIR$/designSystem" />
             <option value="$PROJECT_DIR$/features" />
             <option value="$PROJECT_DIR$/features/auth" />
+            <option value="$PROJECT_DIR$/features/unit_test" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />
