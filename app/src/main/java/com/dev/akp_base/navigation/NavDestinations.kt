@@ -1,7 +1,6 @@
-package com.dev.akp_base
+package com.dev.akp_base.navigation
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
@@ -14,7 +13,7 @@ sealed interface MyNavDestination{
     val icon: ImageVector
     val route: String
 
-    data object HomeDestination:MyNavDestination{
+    data object HomeDestination: MyNavDestination {
         override val icon: ImageVector
             get() = Icons.Filled.Home
         override val route: String
@@ -22,7 +21,7 @@ sealed interface MyNavDestination{
     }
 
 
-    data object DetailDestination:MyNavDestination{
+    data object DetailDestination: MyNavDestination {
         override val icon: ImageVector
             get() = Icons.Filled.Favorite
         override val route: String
@@ -43,7 +42,7 @@ sealed interface MyNavDestination{
 
     }
 
-    data object ProfileDestination:MyNavDestination{
+    data object ProfileDestination: MyNavDestination {
         override val icon: ImageVector
             get() = Icons.Filled.Person
         override val route: String

@@ -11,18 +11,15 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.dev.designsystem.ui.theme.AppTheme
-import kotlinx.coroutines.flow.Flow
 
 @Composable
 fun StackedCard(
@@ -32,12 +29,15 @@ fun StackedCard(
     customRotationZ:Float = -5f,
     offsetX:Dp = 8.dp,
     offsetY:Dp = (-16).dp,
-    firstCardContainerColor:Color = Color.Blue,
-    secondCardContainerColor:Color = Color.Red,
-    thirdCardContainerColor:Color = Color.Green,
+    secondCardContent: @Composable ColumnScope.() -> Unit,
+    thirdCardContent: @Composable ColumnScope.() -> Unit,
+    firstCardContainerColor:Color = Color.Red,
+    secondCardContainerColor:Color = Color.Transparent,
+    thirdCardContainerColor:Color = Color.Transparent,
     content: @Composable ColumnScope.() -> Unit
 ) {
     Box (
+        modifier = modifier,
         contentAlignment = Alignment.Center
     ){
         Card (
@@ -52,7 +52,7 @@ fun StackedCard(
             colors = CardDefaults.cardColors(
                 containerColor = thirdCardContainerColor
             ),
-            content = content
+            content = thirdCardContent
         )
         Card (
             modifier = Modifier
@@ -66,7 +66,7 @@ fun StackedCard(
             colors = CardDefaults.cardColors(
                 containerColor = secondCardContainerColor
             ),
-            content = content
+            content = secondCardContent
         )
         Card (
             modifier = Modifier
@@ -87,14 +87,24 @@ fun StackedCard(
 fun StackedCardsExample(modifier: Modifier = Modifier) {
     Column(modifier = modifier.fillMaxSize(),
         verticalArrangement = Arrangement.SpaceEvenly) {
-        StackedCard{}
         StackedCard(
-            customRotationZ = 0f
-        ){}
+            secondCardContent = {},
+            thirdCardContent = {},
+            content = {}
+        )
         StackedCard(
             customRotationZ = 0f,
-            offsetX = 0.dp
-        ){}
+            secondCardContent = {},
+            thirdCardContent = {},
+            content = {}
+        )
+        StackedCard(
+            customRotationZ = 0f,
+            offsetX = 0.dp,
+            secondCardContent = {},
+            thirdCardContent = {},
+            content = {}
+        )
     }
 }
 

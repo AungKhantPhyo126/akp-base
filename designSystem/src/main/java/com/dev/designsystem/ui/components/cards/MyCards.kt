@@ -2,6 +2,7 @@ package com.dev.designsystem.ui.components.cards
 
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -21,17 +22,14 @@ import androidx.compose.ui.unit.dp
 
 // Simple Card
 @Composable
-fun SimpleCardExample() {
+fun MyNormalCard(
+    content: @Composable ColumnScope.() -> Unit
+) {
     Card(
         modifier = Modifier.padding(8.dp),
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
-    ) {
-        Text(
-            text = "Simple Card",
-            modifier = Modifier.padding(16.dp),
-            textAlign = TextAlign.Center
-        )
-    }
+        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
+        content = content
+    )
 }
 
 // Elevated Card
@@ -109,10 +107,18 @@ fun CustomStyledCardExample() {
 
 // Column to display all card types
 @Composable
-fun CardExamples() {
+private fun CardExamples() {
     Column(modifier = Modifier.padding(16.dp)) {
         Text("Simple Card", modifier = Modifier.padding(bottom = 8.dp))
-        SimpleCardExample()
+        MyNormalCard(
+            content = {
+                Text(
+                    text = "Simple Card",
+                    modifier = Modifier.padding(16.dp),
+                    textAlign = TextAlign.Center
+                )
+            }
+        )
 
         Spacer(modifier = Modifier.height(8.dp))
 
@@ -139,6 +145,6 @@ fun CardExamples() {
 // Preview Composable
 @Preview(showBackground = true)
 @Composable
-fun CardExamplesPreview() {
+private fun CardExamplesPreview() {
     CardExamples()
 }

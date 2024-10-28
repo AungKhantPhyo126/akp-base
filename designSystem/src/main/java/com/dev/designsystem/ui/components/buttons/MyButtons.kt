@@ -24,6 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
 import com.dev.designsystem.ui.theme.AppTheme
 
@@ -77,18 +78,26 @@ fun ElevatedButtonExample() {
 
 // Icon Button
 @Composable
-fun IconButtonExample() {
+fun MyIconButton(
+    modifier: Modifier = Modifier,
+    iconModifier: Modifier = Modifier,
+    icon:ImageVector = Icons.Default.Favorite,
+    onClick:()->Unit,
+) {
     IconButton(
-        onClick = { /* Handle click */ },
-        modifier = Modifier.padding(8.dp)
+        onClick = onClick,
+        modifier = modifier.padding(8.dp)
     ) {
-        Icon(imageVector = Icons.Default.Favorite, contentDescription = "Favorite")
+        Icon(
+            modifier = iconModifier,
+            imageVector = icon,
+            contentDescription = "Favorite")
     }
 }
 
 // Filled Icon Button
 @Composable
-fun FilledIconButtonExample() {
+fun MyFilledIconButton() {
     Button(
         onClick = { /* Handle click */ },
         modifier = Modifier.padding(8.dp),
@@ -128,7 +137,7 @@ fun CustomStyledButton() {
 
 // Column to display all button types
 @Composable
-fun ButtonExamples() {
+private fun ButtonExamples() {
     Column(modifier = Modifier.padding(16.dp)) {
         Text("Text Button", modifier = Modifier.padding(bottom = 8.dp))
         TextButtonExample()
@@ -151,7 +160,7 @@ fun ButtonExamples() {
         Spacer(modifier = Modifier.height(8.dp))
 
         Text("Icon Button", modifier = Modifier.padding(bottom = 8.dp))
-        IconButtonExample()
+        MyIconButton {  }
 
         Spacer(modifier = Modifier.height(8.dp))
 
@@ -173,7 +182,7 @@ fun ButtonExamples() {
 // Preview Composable
 @Preview(showBackground = true)
 @Composable
-fun ButtonExamplesPreview() {
+private fun ButtonExamplesPreview() {
     AppTheme {
         ButtonExamples()
     }

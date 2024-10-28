@@ -24,6 +24,8 @@ import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.navigation.compose.ComposeNavigator
 import androidx.navigation.testing.TestNavHostController
+import com.dev.akp_base.navigation.AkpBaseNavHost
+import com.dev.akp_base.navigation.MyNavDestination
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Rule
