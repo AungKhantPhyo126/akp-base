@@ -165,7 +165,7 @@ private fun ButtonExamples() {
         Spacer(modifier = Modifier.height(8.dp))
 
         Text("Filled Icon Button", modifier = Modifier.padding(bottom = 8.dp))
-        FilledIconButtonExample()
+        MyFilledIconButton()
 
         Spacer(modifier = Modifier.height(8.dp))
 

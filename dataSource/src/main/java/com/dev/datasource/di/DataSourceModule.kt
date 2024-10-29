@@ -2,6 +2,8 @@ package com.dev.datasource.di
 
 import com.dev.datasource.AuthDataSource
 import com.dev.datasource.AuthDataSourceImpl
+import com.dev.datasource.LocalizationDataSource
+import com.dev.datasource.LocalizationDataSourceImpl
 import com.dev.datasource.dataStore.MyDatStoreDataSourceImpl
 import com.dev.datasource.dataStore.MyDataStoreDataSource
 import com.dev.datasource.roomDatabase.MyRoomDataSource
@@ -32,5 +34,11 @@ abstract class DataSourceModule {
     @Binds
     @Singleton
     abstract fun provideAuthDataSource(authDataSourceImpl: AuthDataSourceImpl): AuthDataSource
+
+    @Binds
+    @Singleton
+    abstract fun provideLocalizationDataSource(
+        localizationDataSourceImpl: LocalizationDataSourceImpl
+    ): LocalizationDataSource
 
 }

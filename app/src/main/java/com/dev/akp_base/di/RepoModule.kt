@@ -1,6 +1,8 @@
 package com.dev.akp_base.di
 
 import android.app.Application
+import com.dev.akp_base.localization.LocalizationRepoImpl
+import com.dev.akp_base.localization.LocalizationRepository
 import com.dev.akp_base.repository.AuthRepoImpl
 import com.dev.auth.domain.repository.AuthRepository
 import dagger.Binds
@@ -18,4 +20,8 @@ abstract class RepositoryModule {
     @Binds
     @Singleton
     abstract fun bindsAuthRepository(impl: AuthRepoImpl): AuthRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindsLocalizationRepository(impl: LocalizationRepoImpl): LocalizationRepository
 }

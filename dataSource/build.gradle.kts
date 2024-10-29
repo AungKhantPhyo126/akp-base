@@ -16,6 +16,10 @@ android {
         buildConfigField("String", "METHOD_POST_LOGIN", "\"/login\"")
         buildConfigField("String", "LOGIN_BIOMETRIC", "\"/loginbiometric\"")
 
+        //Localization
+        buildConfigField("String", "METHOD_GET_LOCALIZATION", "\"/localization\"")
+
+
     }
     buildTypes {
         getByName("debug") {

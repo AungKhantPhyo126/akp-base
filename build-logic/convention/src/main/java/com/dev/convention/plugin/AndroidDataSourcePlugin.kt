@@ -64,6 +64,8 @@ class AndroidDataSourcePlugin:Plugin<Project> {
                     add("implementation", versionCatalog().findLibrary("androidx-room-runtime").get())
                     add("implementation", versionCatalog().findLibrary("androidx-room-ktx").get())
                     add("implementation", versionCatalog().findLibrary("sqlcipher").get())
+                    add("implementation", versionCatalog().findLibrary("gson").get())
+                    add("implementation", versionCatalog().findLibrary("moshi-kotlin").get())
 
                 }
                 configureAndroidKotlin(this)
