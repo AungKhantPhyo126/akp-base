@@ -6,12 +6,16 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color.Companion.Black
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 
 import androidx.compose.ui.text.googlefonts.GoogleFont
 import androidx.compose.ui.text.googlefonts.Font
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.dev.designsystem.R
 
 val provider = GoogleFont.Provider(
@@ -33,6 +37,17 @@ val displayFontFamily = FontFamily(
         fontProvider = provider,
     )
 )
+
+//for custom typo if ui designer provide custom typo, you can use them like this
+val Typography.dialogTitle: TextStyle
+    get() = TextStyle(
+        fontFamily = FontFamily.SansSerif,
+        fontWeight = FontWeight.Normal,
+        fontSize = 22.sp,
+        color = Black,
+        letterSpacing = 0.0.sp,
+        lineHeight = 32.0.sp
+    )
 
 // Default Material 3 typography values
 val baseline = Typography()

@@ -4,6 +4,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.dev.akp_base.localization.LocalizationRepository
 import com.dev.akp_base.localization.model.LocalizationModel
+import com.dev.common.GlobalStateFlow
 import com.dev.common.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
@@ -20,6 +21,13 @@ class MainViewModel @Inject constructor(
         .stateIn(
             scope = viewModelScope,
             initialValue = LocalizationModel(),
+            started = SharingStarted.WhileSubscribed(5000L)
+        )
+
+    val globalStateFlow = GlobalStateFlow.globalStateFlow
+        .stateIn(
+            scope = viewModelScope,
+            initialValue = GlobalStateFlow.GlobalState.Empty,
             started = SharingStarted.WhileSubscribed(5000L)
         )
 

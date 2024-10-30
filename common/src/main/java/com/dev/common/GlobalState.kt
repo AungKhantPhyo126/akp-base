@@ -1,5 +1,6 @@
 package com.dev.common
 
+import com.dev.common.exception.DataException
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -22,6 +23,7 @@ object GlobalStateFlow{
         data object Empty:GlobalState()
         data object Error401:GlobalState()
         data object Error403 : GlobalState()
+        data class Error(val errorMessage:String) : GlobalState()
         data class Maintenance(
             val maintenanceOn: Boolean,
             val title: String,
